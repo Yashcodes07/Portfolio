@@ -22,7 +22,7 @@ const projects = [
   },
   {
     title: 'Voice Command System',
-    description: 'A comprehensive description of your machine learning project. What dataset did you use? What models did you implement? What were the results?',
+    description: 'Currently Working',
     technologies: ['Python', 'TensorFlow', 'Pandas', 'Scikit-learn'],
     github: 'https://github.com/yourusername/ml-project',
     live: '',
