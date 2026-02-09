@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
+import MovieQuotes from '@/components/MovieQuotes';  // ← ADD THIS LINE
 import TechStack from '@/components/TechStack';
 import Achievements from '@/components/Achievements';
 import Projects from '@/components/Projects';
@@ -11,6 +12,7 @@ export default function Home() {
     <main className="min-h-screen">
       <Header />
       <Hero />
+      <MovieQuotes />  {/* ← ADD THIS LINE (between Hero and TechStack) */}
       <TechStack />
       <Achievements />
       <Projects />

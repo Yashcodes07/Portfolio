@@ -1,6 +1,9 @@
 'use client';
 
 import { FaFileAlt, FaBlog } from 'react-icons/fa';
+import Image from "next/image";
+
+
 
 export default function Hero() {
   const scrollToSection = (sectionId: string) => {
@@ -24,9 +27,10 @@ export default function Hero() {
             <div className="relative w-full h-full rounded-2xl overflow-hidden bg-gradient-to-br from-accent to-accent-dark p-1">
               <div className="w-full h-full bg-secondary rounded-2xl overflow-hidden">
                 {/* Placeholder for profile image - replace with your actual image */}
-                <img
-                  src="/img2.png"
-                  alt="Profile"
+               <Image
+                 src="/img2.png"
+                 alt="Me"
+                 priority
                   className="w-full h-full object-cover"
                   onError={(e) => {
                     // Fallback to a colored div if image doesn't exist
@@ -52,7 +56,10 @@ I am a B.Tech student specializing in Artificial Intelligence and Machine Learni
               As a web developer, I enjoy turning ideas into clean, responsive, and user-focused digital experiences. I've worked with modern web technologies to build projects that emphasize performance, usability, and maintainable code.
             </p>
             <p className="text-base sm:text-lg text-gray-400 leading-relaxed mb-10 max-w-2xl">
-              Alongside web development, I'm actively learning Machine Learning and concepts of Deep learning(NLP), focusing on understanding data, building models, and applying ML concepts to real-world problems. I enjoy experimenting, learning from failures, and continuously improving my technical depth.
+              Alongside web development, I'm actively learning Machine Learning and concepts of Deep learning(NLP), focusing on understanding data, building models, and applying ML concepts to real-world problems. 
+            </p>
+            <p className="text-base sm:text-lg text-gray-400 leading-relaxed mb-10 max-w-2xl">
+              Fun Fact--Debugging is like being a detective in a crime movie where you're also the murderer.....
             </p>
 
             {/* Buttons */}

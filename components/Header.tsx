@@ -40,11 +40,11 @@ export default function Header() {
             <button onClick={() => scrollToSection('blogs')} className="text-gray-300 hover:text-accent transition-colors">
               Blogs
             </button>
-            
+
             {/* Social Icons */}
             <div className="flex items-center space-x-3 pl-4 border-l border-gray-700">
               <a
-                href="mailto:yashk40491@gmail.com"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=yashk40491@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-xl text-gray-400 hover:text-accent transition-colors"
@@ -52,6 +52,7 @@ export default function Header() {
               >
                 <FaEnvelope />
               </a>
+
               <a
                 href="https://www.linkedin.com/in/yashcodes07/"
                 target="_blank"
@@ -111,7 +112,7 @@ export default function Header() {
               <button onClick={() => scrollToSection('blogs')} className="text-gray-300 hover:text-accent transition-colors text-left">
                 Blogs
               </button>
-              
+
               {/* Mobile Social Icons */}
               <div className="flex space-x-6 pt-4 border-t border-gray-800">
                 <a

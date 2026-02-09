@@ -15,23 +15,23 @@ const achievements = [
     description: 'Delivered a fully functional production-ready website for a client, managing the complete lifecycle from planning and design to deployment and maintenance.',
     date: '2026'
   },
-  {
-    icon: <FaMedal className="text-4xl text-accent" />,
-    title: 'Achievement Title 3',
-    description: 'Brief description of your achievement. What did you accomplish and why is it significant?',
-    date: '2023'
-  },
-  {
-    icon: <FaStar className="text-4xl text-accent" />,
-    title: 'Achievement Title 4',
-    description: 'Brief description of your achievement. What did you accomplish and why is it significant?',
-    date: '2023'
-  },
+  // {
+  //   icon: <FaMedal className="text-4xl text-accent" />,
+  //   title: 'Achievement Title 3',
+  //   description: 'Brief description of your achievement. What did you accomplish and why is it significant?',
+  //   date: '2023'
+  // },
+  // {
+  //   icon: <FaStar className="text-4xl text-accent" />,
+  //   title: 'Achievement Title 4',
+  //   description: 'Brief description of your achievement. What did you accomplish and why is it significant?',
+  //   date: '2023'
+  // },
 ];
 
 export default function Achievements() {
   return (
-    <section id="achievements" className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-secondary/30">
+    <section id="achievements" className="h-[75vh] py-10 px-4 sm:px-6 lg:px-8 bg-secondary/30">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl sm:text-5xl font-bold text-center mb-4">
           <span className="text-gradient">Achievements</span>
