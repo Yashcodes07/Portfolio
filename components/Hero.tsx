@@ -23,14 +23,15 @@ export default function Hero() {
       <div className="max-w-7xl w-full mx-auto">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           {/* Profile Image */}
-<div className="w-80 h-80 sm:w-96 sm:h-96 lg:w-[28rem] lg:h-[36rem] flex-shrink-0">
+<div className="w-80 h-80 sm:w-96 sm:h-96 lg:w-[32rem] lg:h-[36rem] flex-shrink-0">
             <div className="relative w-full h-full rounded-2xl overflow-hidden bg-gradient-to-br from-accent to-accent-dark p-1">
               <div className="w-full h-full bg-secondary rounded-2xl overflow-hidden">
                 {/* Placeholder for profile image - replace with your actual image */}
                <Image
-                 src="/img2.png"
+                 src="/pf-1.webp"
                  alt="Me"
                  priority
+                 fill
                   className="w-full h-full object-cover"
                   onError={(e) => {
                     // Fallback to a colored div if image doesn't exist

@@ -52,7 +52,7 @@ export default function Footer() {
           {/* Copyright */}
           <div className="text-center text-gray-400 text-sm">
             <p className="flex items-center gap-2 justify-center">
-              © {currentYear} Made with <FaHeart className="text-red-500" /> by Your Name
+              © {currentYear} Made with <FaHeart className="text-red-500" /> by Yash Kumar
             </p>
           </div>
         </div>
