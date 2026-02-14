@@ -1,11 +1,11 @@
 'use client';
 
-import { 
-  SiPython, 
-  SiJavascript, 
-  SiTypescript, 
-  SiTailwindcss, 
-  SiNodedotjs, 
+import {
+  SiPython,
+  SiJavascript,
+  SiTypescript,
+  SiTailwindcss,
+  SiNodedotjs,
   SiSocketdotio,
   SiScikitlearn,
   SiTensorflow,
@@ -19,7 +19,7 @@ import {
   SiDocker,
   SiGit,
   SiHtml5,
-  SiCss3
+  SiCss3,
 } from 'react-icons/si';
 
 const technologies = [
@@ -45,37 +45,42 @@ const technologies = [
 ];
 
 export default function TechStack() {
-  // Duplicate the array to create seamless loop
   const duplicatedTechnologies = [...technologies, ...technologies];
 
   return (
-    <section id="skills" className="py-16 px-4 sm:px-6 lg:px-8 bg-secondary/20 overflow-hidden">
-      <div className="max-w-7xl mx-auto mb-8">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
+    <section
+      id="skills"
+      className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-secondary/20 overflow-hidden"
+    >
+      <div className="max-w-7xl mx-auto mb-6 sm:mb-8">
+        <h2 className="text-2xl sm:text-4xl font-bold text-center mb-3 sm:mb-4">
           <span className="text-gradient">Tech Stack</span>
         </h2>
-        <p className="text-center text-gray-400 mb-12">
+        <p className="text-center text-gray-400 text-sm sm:text-base mb-8 sm:mb-12">
           Technologies and frameworks I work with
         </p>
       </div>
 
       {/* Infinite Scrolling Container */}
       <div className="relative">
-        {/* Gradient Overlays */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-primary via-primary/50 to-transparent z-10"></div>
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-primary via-primary/50 to-transparent z-10"></div>
-        
+        {/* Smaller Gradient Overlays on Mobile */}
+        <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-32 bg-gradient-to-r from-primary via-primary/50 to-transparent z-10"></div>
+        <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-32 bg-gradient-to-l from-primary via-primary/50 to-transparent z-10"></div>
+
         {/* Scrolling Track */}
-        <div className="flex animate-slide">
+        <div className="flex animate-slide items-center">
           {duplicatedTechnologies.map((tech, index) => (
             <div
               key={index}
-              className="flex-shrink-0 mx-8 flex flex-col items-center justify-center group"
+              className="flex-shrink-0 mx-4 sm:mx-8 flex flex-col items-center justify-center group"
             >
-              <div className="text-6xl text-gray-400 group-hover:text-accent transition-all duration-400 group-hover:scale-110 transform">
+              {/* Responsive Icon Size */}
+              <div className="text-4xl sm:text-6xl text-gray-400 group-hover:text-accent transition-all duration-300 group-hover:scale-110 transform">
                 {tech.icon}
               </div>
-              <p className="text-sm text-gray-500 mt-3 group-hover:text-accent transition-colors">
+
+              {/* Responsive Text */}
+              <p className="text-xs sm:text-sm text-gray-500 mt-2 sm:mt-3 group-hover:text-accent transition-colors">
                 {tech.name}
               </p>
             </div>
@@ -83,8 +88,7 @@ export default function TechStack() {
         </div>
       </div>
 
-      {/* Additional info */}
-      <div className="text-center mt-12 text-gray-400 text-sm">
+      <div className="text-center mt-8 sm:mt-12 text-gray-400 text-xs sm:text-sm">
         <p>...and more technologies I'm constantly learning!</p>
       </div>
     </section>

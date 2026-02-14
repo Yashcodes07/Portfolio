@@ -9,6 +9,7 @@ export default function Footer() {
     <footer className="bg-secondary border-t border-gray-800 py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col items-center gap-6">
+          
           {/* Social Links */}
           <div className="flex gap-6">
             <a
