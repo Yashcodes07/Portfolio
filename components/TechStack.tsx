@@ -1,5 +1,6 @@
 'use client';
 
+import { useRef } from 'react';
 import {
   SiPython,
   SiJavascript,
@@ -21,6 +22,8 @@ import {
   SiHtml5,
   SiCss3,
 } from 'react-icons/si';
+
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 const technologies = [
   { icon: <SiPython />, name: 'Python' },
@@ -45,12 +48,22 @@ const technologies = [
 ];
 
 export default function TechStack() {
-  const duplicatedTechnologies = [...technologies, ...technologies];
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      const scrollAmount = 200;
+      scrollRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth',
+      });
+    }
+  };
 
   return (
     <section
       id="skills"
-      className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-secondary/20 overflow-hidden"
+      className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-secondary/20"
     >
       <div className="max-w-7xl mx-auto mb-6 sm:mb-8">
         <h2 className="text-2xl sm:text-4xl font-bold text-center mb-3 sm:mb-4">
@@ -61,31 +74,46 @@ export default function TechStack() {
         </p>
       </div>
 
-      {/* Infinite Scrolling Container */}
-      <div className="relative">
-        {/* Smaller Gradient Overlays on Mobile */}
-        <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-32 bg-gradient-to-r from-primary via-primary/50 to-transparent z-10"></div>
-        <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-32 bg-gradient-to-l from-primary via-primary/50 to-transparent z-10"></div>
+      {/* Scroll Container */}
+      <div className="relative max-w-7xl mx-auto">
 
-        {/* Scrolling Track */}
-        <div className="flex animate-slide items-center">
-          {duplicatedTechnologies.map((tech, index) => (
+        {/* Left Button (Mobile Only) */}
+        <button
+          onClick={() => scroll('left')}
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-accent p-2 rounded-full shadow-lg md:hidden"
+        >
+          <FaChevronLeft />
+        </button>
+
+        {/* Scrollable Row */}
+        <div
+          ref={scrollRef}
+          className="flex overflow-x-auto scroll-smooth no-scrollbar gap-8 px-10 md:px-0"
+        >
+          {technologies.map((tech, index) => (
             <div
               key={index}
-              className="flex-shrink-0 mx-4 sm:mx-8 flex flex-col items-center justify-center group"
+              className="flex-shrink-0 flex flex-col items-center justify-center group min-w-[80px]"
             >
-              {/* Responsive Icon Size */}
-              <div className="text-4xl sm:text-6xl text-gray-400 group-hover:text-accent transition-all duration-300 group-hover:scale-110 transform">
+              <div className="text-4xl sm:text-6xl text-gray-400 group-hover:text-accent transition-all duration-300 group-hover:scale-110">
                 {tech.icon}
               </div>
 
-              {/* Responsive Text */}
-              <p className="text-xs sm:text-sm text-gray-500 mt-2 sm:mt-3 group-hover:text-accent transition-colors">
+              <p className="text-xs sm:text-sm text-gray-500 mt-2 sm:mt-3 group-hover:text-accent transition-colors text-center">
                 {tech.name}
               </p>
             </div>
           ))}
         </div>
+
+        {/* Right Button (Mobile Only) */}
+        <button
+          onClick={() => scroll('right')}
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-accent p-2 rounded-full shadow-lg md:hidden"
+        >
+          <FaChevronRight />
+        </button>
+
       </div>
 
       <div className="text-center mt-8 sm:mt-12 text-gray-400 text-xs sm:text-sm">

@@ -5,96 +5,110 @@ import Image from 'next/image';
 
 const projects = [
   {
-    title: 'Helmet detection Model',
-    description: 'This project detects whether a person is wearing a helmet or not using a YOLOv8 object detection model helpfull in Online Traffic-Monitoring System.',
-    technologies: ['YoloV8', 'Python', 'Flask', 'Tailwind CSS'],
+    title: 'Helmet Detection Model',
+    description:
+      'Detects whether a person is wearing a helmet using YOLOv8. Useful for traffic monitoring systems.',
+    technologies: ['YOLOv8', 'Python', 'Flask', 'Tailwind CSS'],
     github: 'https://github.com/Yashcodes07/Online-Traffic-Monitoring-System',
-    live: 'https://project1.com',
-    image: '/p1.png'
+    live: '',
+    image: '/p1.png',
   },
   {
-    title: 'Customized Website For client',
-    description: 'A Official Website for a Company--Dynatech Controls Which make Automations Parts, SPM and provide harwdware solution ',
+    title: 'Customized Website for Client',
+    description:
+      'Official website for Dynatech Controls — Automation Parts, SPM & Hardware Solutions.',
     technologies: ['Next.js', 'TypeScript', 'ResendAPI', 'Tailwind CSS'],
     github: 'https://github.com/Yashcodes07/dynatech-controls',
     live: 'https://dynatechcontrols.in',
-    image: '/p2.png'
+    image: '/p2.png',
   },
   {
     title: 'Voice Command System',
-    description: 'Currently Working',
+    description: 'Speech recognition based ML system (Currently Working).',
     technologies: ['Python', 'TensorFlow', 'Pandas', 'Scikit-learn'],
     github: 'https://github.com/yourusername/ml-project',
     live: '',
-    image: '/po-1.webp'
+    image: '/po-1.webp',
   },
   {
-    title: 'Github-Integrated Personalized Dashboard ',
-    description: 'A modern, feature-rich dashboard application built with Next.js 14, featuring GitHub integration, authentication, and personalization options.',
-    technologies: ['Next.js', 'Tailwind CSS', 'NextAuth/API Integration', 'MongoDB'],
+    title: 'GitHub Integrated Dashboard',
+    description:
+      'Modern personalized dashboard built with Next.js 14 featuring GitHub API integration & authentication.',
+    technologies: ['Next.js', 'Tailwind CSS', 'NextAuth', 'MongoDB'],
     github: 'https://github.com/Yashcodes07/Github-Integrated-Dashboard',
     live: 'https://github-integrated-dashboard.vercel.app/dashboard',
-    image: '/image.png'
+    image: '/image.png',
   },
 ];
 
 export default function Projects() {
   return (
-    <section id="projects" className="min-h-screen py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+    <section
+      id="projects"
+      className="w-full py-14 sm:py-20 px-4 sm:px-6 lg:px-8"
+    >
       <div className="max-w-7xl mx-auto">
+
+        {/* Heading */}
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-4">
           <span className="text-gradient">Projects</span>
         </h2>
-        <p className="text-center text-gray-400 mb-12 sm:mb-16 max-w-2xl mx-auto text-sm sm:text-base">
-          A showcase of my work in web development and machine learning
+
+        <p className="text-center text-gray-400 mb-10 sm:mb-16 max-w-2xl mx-auto text-sm sm:text-base">
+          A showcase of my work in Web Development & Machine Learning
         </p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+        {/* Responsive Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-secondary rounded-xl overflow-hidden border border-gray-800 hover:border-accent transition-all duration-300 hover:shadow-lg hover:shadow-accent/20 group"
+              className="bg-secondary rounded-2xl overflow-hidden border border-gray-800 transition-all duration-300 hover:border-accent hover:shadow-xl hover:shadow-accent/10"
             >
               
               {/* Project Image */}
-              <div className="h-40 sm:h-48 relative overflow-hidden">
+              <div className="relative w-full h-44 sm:h-52 md:h-56">
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover transition-transform duration-300 hover:scale-105"
                 />
               </div>
 
-              {/* Project Content */}
-              <div className="p-4 sm:p-6">
-                <h3 className="text-xl sm:text-2xl font-semibold text-white mb-3 group-hover:text-accent transition-colors">
+              {/* Content */}
+              <div className="p-5 sm:p-6">
+                
+                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-3">
                   {project.title}
                 </h3>
 
-                <p className="text-gray-400 leading-relaxed mb-4 text-sm sm:text-base">
+                <p className="text-gray-400 text-sm sm:text-base mb-4 leading-relaxed">
                   {project.description}
                 </p>
 
                 {/* Technologies */}
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2 mb-5">
                   {project.technologies.map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className="px-2 sm:px-3 py-1 bg-accent/10 text-accent text-xs sm:text-sm rounded-full border border-accent/20"
+                      className="px-3 py-1 text-xs sm:text-sm bg-accent/10 text-accent rounded-full border border-accent/20"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
 
-                {/* Links */}
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                {/* Buttons */}
+                <div className="flex flex-col sm:flex-row gap-3">
+
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex justify-center items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors text-sm"
+                    className="w-full sm:w-auto flex justify-center items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-sm transition"
                   >
                     <FaGithub /> GitHub
                   </a>
@@ -104,16 +118,17 @@ export default function Projects() {
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex justify-center items-center gap-2 px-4 py-2 bg-accent hover:bg-accent-dark rounded-lg transition-colors text-sm"
+                      className="w-full sm:w-auto flex justify-center items-center gap-2 px-4 py-2 bg-accent hover:bg-accent-dark rounded-lg text-sm transition"
                     >
                       <FaExternalLinkAlt /> Live Demo
                     </a>
                   )}
-                </div>
 
+                </div>
               </div>
             </div>
           ))}
+
         </div>
       </div>
     </section>
