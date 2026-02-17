@@ -6,7 +6,6 @@ import Achievements from '@/components/Achievements';
 import Projects from '@/components/Projects';
 import Blogs from '@/components/Blogs';
 import Footer from '@/components/Footer';
-
 export default function Home() {
   return (
     <main className="min-h-screen">
