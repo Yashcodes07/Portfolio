@@ -15,7 +15,7 @@ export default function Hero() {
 
   const handleResumeClick = () => {
     // Opens resume.pdf from public folder
-    window.open('/resume.pdf', '_blank');
+    window.open('/Yash_Resume.pdf', '_blank');
   };
 
   return (
