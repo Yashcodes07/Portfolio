@@ -1,6 +1,6 @@
 'use client';
 
-import { FaTrophy, FaCertificate } from 'react-icons/fa';
+import { FaTrophy, FaCertificate, FaGlobe, FaRobot } from 'react-icons/fa';
 
 const achievements = [
   {
@@ -11,10 +11,24 @@ const achievements = [
     date: '2025',
   },
   {
-    icon: <FaCertificate className="text-3xl sm:text-4xl text-accent" />,
-    title: 'Client Website Deployment',
+    icon: <FaGlobe className="text-3xl sm:text-4xl text-accent" />,
+    title: 'Ai Automation Solutions for Dynatech Controls',
     description:
       'Delivered a fully production-ready website, handling planning, development, deployment, and maintenance.',
+    date: '2026',
+  },
+  {
+    icon: <FaGlobe className="text-3xl sm:text-4xl text-accent" />,
+    title: 'Official Website for Akashsan.in',
+    description:
+      'Designed and deployed the official website for akashsan.in with responsive UI, optimized performance, and complete deployment setup.',
+    date: '2026',
+  },
+  {
+    icon: <FaRobot className="text-3xl sm:text-4xl text-accent" />,
+    title: 'Google Gen AI APAC Competition 2026',
+    description:
+      'Successfully completed the Google Generative AI APAC competition, exploring advanced AI workflows, prompt engineering, and GenAI applications.',
     date: '2026',
   },
 ];

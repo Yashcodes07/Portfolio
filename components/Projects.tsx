@@ -2,8 +2,16 @@
 
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import Image from 'next/image';
-
 const projects = [
+  {
+    title: 'QueDB — AI Database Engine',
+    description:
+      'AI-powered database query engine that converts natural language to optimised SQL instantly. Features JWT auth, schema explorer, Monaco editor, and real-time visualisations.',
+    technologies: ['React', 'FastAPI', 'Langchain', 'Groq-LLM', 'ChromaDB'],
+    github: 'https://github.com/Yashcodes07/QueDB',
+    live: 'https://quedb.vercel.app',
+    image: '/QueDb.png',
+  },
   {
     title: 'Helmet Detection Model',
     description:
@@ -11,24 +19,16 @@ const projects = [
     technologies: ['YOLOv8', 'Python', 'Flask', 'Tailwind CSS'],
     github: 'https://github.com/Yashcodes07/Online-Traffic-Monitoring-System',
     live: '',
-    image: '/p1.png',
+    image: '/image copy.png',
   },
   {
-    title: 'Customized Website for Client',
+    title: 'AI Automation Solutions for Dynatech Controls',
     description:
       'Official website for Dynatech Controls — Automation Parts, SPM & Hardware Solutions.',
     technologies: ['Next.js', 'TypeScript', 'ResendAPI', 'Tailwind CSS'],
     github: 'https://github.com/Yashcodes07/dynatech-controls',
     live: 'https://dynatechcontrols.in',
     image: '/p2.png',
-  },
-  {
-    title: 'Voice Command System',
-    description: 'Speech recognition based ML system (Currently Working).',
-    technologies: ['Python', 'TensorFlow', 'Pandas', 'Scikit-learn'],
-    github: 'https://github.com/yourusername/ml-project',
-    live: '',
-    image: '/po-1.webp',
   },
   {
     title: 'GitHub Integrated Dashboard',
@@ -39,7 +39,7 @@ const projects = [
     live: 'https://github-integrated-dashboard.vercel.app/dashboard',
     image: '/image.png',
   },
-];
+]
 
 export default function Projects() {
   return (
