@@ -13,6 +13,15 @@ const projects = [
     image: '/QueDb.png',
   },
   {
+    title: 'Reposage — GitHub Repository Analyzer',
+    description:
+      'A tool for analyzing and visualizing GitHub repository data.',
+    technologies: ['Tree parser', 'Reranker', 'llama', 'Chroma-DB', 'Langchain', 'Next.js'],
+    github: 'https://github.com/Yashcodes07/RepoSage',
+    live: 'https://reposage-lake.vercel.app',
+    image: '/img-2.png',
+  },
+  {
     title: 'Helmet Detection Model',
     description:
       'Detects whether a person is wearing a helmet using YOLOv8. Useful for traffic monitoring systems.',
@@ -30,15 +39,8 @@ const projects = [
     live: 'https://dynatechcontrols.in',
     image: '/p2.png',
   },
-  {
-    title: 'GitHub Integrated Dashboard',
-    description:
-      'Modern personalized dashboard built with Next.js 14 featuring GitHub API integration & authentication.',
-    technologies: ['Next.js', 'Tailwind CSS', 'NextAuth', 'MongoDB'],
-    github: 'https://github.com/Yashcodes07/Github-Integrated-Dashboard',
-    live: 'https://github-integrated-dashboard.vercel.app/dashboard',
-    image: '/image.png',
-  },
+ 
+  
 ]
 
 export default function Projects() {
