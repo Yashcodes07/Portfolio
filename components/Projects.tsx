@@ -27,7 +27,7 @@ const projects = [
       'Detects whether a person is wearing a helmet using YOLOv8. Useful for traffic monitoring systems.',
     technologies: ['YOLOv8', 'Python', 'Flask', 'Tailwind CSS'],
     github: 'https://github.com/Yashcodes07/Online-Traffic-Monitoring-System',
-    live: '',
+    live: 'https://helmet-detection-project.vercel.app',
     image: '/image copy.png',
   },
   {
