@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "kind": "website",
+  "slug": "portfolio-website-template-luxury-creative-director-portfolio",
+  "title": "Portfolio Website Template - Luxury Creative Director Portfolio",
+  "summary": "Elegant dark maroon/burgundy creative portfolio (Emily Carter, Creative Director & Designer, Milan) with an oversized serif PORTFOLIO headline, cream typography and a dramatic portrait hero with an 'Available for new projects' badge. Sections for intro, What I Do services (Branding, Web Design, UI/UX, Art Direction), Selected Work project cards, animated stats (60+ projects, 40+ clients, 5+ years, 15 awards), a 4-step process and a Let's Work Together contact footer with email, phone, location and socials. Fully phone responsive.",
+  "category": "Portfolio",
+  "prompt": "Create a luxury one-page creative portfolio website for a creative director and designer in an elegant dark maroon and burgundy theme with cream serif typography. Hero: a giant full-width serif 'PORTFOLIO' headline, small top labels 'Creative Portfolio' and 'Based in Milan / IT', a dramatic centered portrait photo and a circular 'Available for new projects' badge. Add an intro 'I'm Emily Carter, Creative Director & Designer' with a short tagline and a list of disciplines. Include a What I Do section with four numbered service cards (Branding, Web Design, UI/UX Design, Art Direction), a Selected Work gallery with three project cards and a View All Projects button, a stats row (60+ projects, 40+ clients, 5+ years, 15 awards), a four-step process (Discover, Strategize, Design, Deliver) and a contact section with email, phone, location and social links. Add smooth scroll animations, make every button work and the site fully phone responsive.",
+  "brief": "site",
+  "min_plan": "free",
+  "thumbnail": "preview/slide-01.webp",
+  "demo_url": "https://portfolio-builder.site.orvisai.com/"
+}

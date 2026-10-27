@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", "Cabinet Grotesk", serif;
+  --font-body: "Satoshi", system-ui, sans-serif;
+  --color-canvas: oklch(0.16 0.03 15);
+  --color-canvas-2: oklch(0.20 0.05 15);
+  --color-paper: oklch(0.93 0.02 60);
+  --color-ink: oklch(0.95 0.02 60);
+  --color-ink-dim: oklch(0.82 0.03 55);
+  --color-ink-on-paper: oklch(0.16 0.03 15);
+  --color-accent: oklch(0.72 0.11 55);
+}
+
+html,
+body {
+  @apply bg-(--color-canvas) text-(--color-ink) font-body antialiased;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
