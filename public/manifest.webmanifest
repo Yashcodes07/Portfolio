@@ -1,10 +1,10 @@
 {
-  "name": "Yash Kumar — AI & ML Engineer",
-  "short_name": "Yash Kumar",
-  "description": "Yash Kumar is an AI and machine learning engineer building machine learning systems and full-stack web products. B.Tech AI & ML student at GGSIPU.",
+  "name": "Yash Kumar — AI Engineer, Web & UI/UX, Technical Writer",
+  "short_name": "Yash Kumar — AI Engineer, Web & UI/UX, Technical Writer",
+  "description": "Portfolio of Yash Kumar: AI engineer and student building web interfaces, ML systems and LLM products.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#241014",
-  "theme_color": "#241014",
+  "background_color": "#EEEAE5",
+  "theme_color": "#EEEAE5",
   "icons": [{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
 }
