@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 const PILLS = [
+  { label: "Yash Kumar", c: "#261ec5", t: "#fff" },
   { label: "Web & UI/UX", c: "#E5412D", t: "#fff" },
   { label: "ML Engineering", c: "#3F7CE0", t: "#fff" },
   { label: "LLM & AI", c: "#7C5CD6", t: "#fff" },
@@ -30,8 +31,7 @@ export default function Loader({ onDone }: { onDone: () => void }) {
   }, [onDone]);
 
   if (gone) return null;
-  const shown = Math.floor(p / 25.01) + (p >= 8 ? 1 : 0);
-  return (
+const shown = Math.min(5, Math.ceil(p / 20));  return (
     <div className={`loader ${out ? "out" : ""}`} style={{ ["--p" as string]: p / 100 }}>
       <div className="ld__bg" />
       <div className="ld__stack">
