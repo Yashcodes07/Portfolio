@@ -1,19 +1,14 @@
 /**
  * Content for every door's page.
- *
- * The KEY of each entry must match the `id` of the door in your DOORS array
- * (src/data.ts). Open the browser console on a door page: it logs the id it
- * is looking for, so you can copy it here.
- *
- * Screenshots: put images in /public/work/ and use e.g. shot: "/work/cliq.png".
- * Without a `shot`, a neutral placeholder is shown inside the device frame.
+ * Keys must match the `id` of each door in src/data.ts: web, ml, llm, write.
+ * Screenshots: put images in /public/work/ and set shot: "/work/name.png".
  */
 export type Project = {
   title: string;
   subtitle?: string;
   description: string;
   tags?: string[];
-  /** small mono label above the title, e.g. "PRODUCT DESIGN" */
+  /** small mono label above the title */
   kicker?: string;
   /** small line at the bottom of the card */
   note?: string;
@@ -29,67 +24,80 @@ export type Category = {
 };
 
 export const WORK: Record<string, Category> = {
-  // ↓ replace these keys with your real door ids
-  "web": {
+  web: {
     intro:
-      "Interfaces researched, structured and prototyped: from user flows and wireframes to polished, interactive designs ready to build.",
+      "Fast, clear websites for real businesses, designed and built in React and shipped to production.",
     projects: [
       {
-        kicker: "PRODUCT DESIGN",
-        title: "Project name",
-        subtitle: "One-line summary",
+        kicker: "CLIENT WEBSITE · INDUSTRIAL AUTOMATION",
+        title: "Dynatech Controls",
+        subtitle: "Corporate website for an automation company",
         description:
-          "Two or three lines about the problem, what you designed and the result. Replace this text with your own project description.",
-        tags: ["Dashboard", "Design system", "Prototype"],
-        note: "Screens shown inside a device frame",
+          "A client website for a Gurugram-based industrial automation firm with 25+ years in PLC, special purpose machines and machine vision. It presents their services, project gallery, partner network and team, with a brochure download and direct contact for enquiries.",
+        tags: ["React", "Responsive", "Freelance"],
+        shot: "/Work/DC.png",
+        link: "https://dynatechcontrols.in",
         device: "monitor",
       },
       {
-        kicker: "MOBILE APP",
-        title: "Second project",
-        subtitle: "One-line summary",
-        description: "Short description of this project and your role in it.",
-        tags: ["Mobile", "Figma"],
-        device: "phone",
+        kicker: "CLIENT WEBSITE · LOCAL SERVICES",
+        title: "AkashSan Cleaning",
+        subtitle: "Booking-focused site for a Delhi NCR cleaning service",
+        description:
+          "A conversion-focused website for a cleaning business covering carpet, tile, chair, flat and office cleaning. It has clear service breakdowns, testimonials, and WhatsApp and call buttons so customers can book in a tap.",
+        tags: ["React", "SEO", "WhatsApp CTA", "Freelance"],
+        shot: "/Work/AS.png",
+        link: "https://www.akashsan.in",
+        device: "monitor",
       },
     ],
   },
-  "ml": {
+  ml: {
     intro:
       "From messy data to trained, evaluated and deployed models that hold up outside the notebook.",
     projects: [
       {
-        kicker: "MACHINE LEARNING",
-        title: "Project name",
-        subtitle: "One-line summary",
-        description: "What the model does, how you trained and evaluated it, and what it achieved.",
-        tags: ["PyTorch", "scikit-learn", "MLOps"],
+        kicker: "COMPUTER VISION",
+        title: "Helmet Detection",
+        subtitle: "Detecting riders with and without helmets",
+        description:
+          "A computer vision project that detects whether riders are wearing helmets, built for road-safety monitoring. It is deployed as a live web demo so you can try the model without any setup.",
+        tags: ["Computer Vision", "Deep Learning", "Deployed"],
+        shot: "/Work/HD.png",
+        link: "https://helmet-detection-project.vercel.app",
+        device: "monitor",
       },
     ],
   },
-  "llm": {
+  llm: {
     intro:
       "LLM apps, agents and retrieval systems built with guardrails and real evaluation, not just demos.",
     projects: [
       {
-        kicker: "LLM · AI ENGINEERING",
-        title: "Your AI project",
-        subtitle: "One-line summary",
+        kicker: "LLM · RAG AGENT",
+        title: "RepoSage",
+        subtitle: "Ask questions about any codebase",
         description:
-          "A few lines on what it does, the stack behind it (models, retrieval, tools) and how you measured quality.",
-        tags: ["LLM", "RAG", "Agents"],
-        note: "Replace with your real AI project",
+          "A production-grade RAG agent that reads a code repository and answers questions about it, grounded in the actual source. Built to help developers understand unfamiliar codebases quickly instead of searching file by file.",
+        tags: ["RAG", "LLM", "Agents"],
+        shot: "/Work/RS.png",
+        link: "https://reposage-lake.vercel.app",
+        device: "monitor",
       },
       {
         kicker: "LLM · AI ENGINEERING",
-        title: "Another AI project",
-        subtitle: "One-line summary",
-        description: "Short description of this project.",
-        tags: ["Evaluation", "Prompting"],
+        title: "QueDB",
+        subtitle: "AI database engine",
+        description:
+          "An AI-powered database engine that lets you work with your data using natural language instead of writing queries by hand. Built as a live web app.",
+        tags: ["LLM", "Natural language", "Databases"],
+        shot: "/Work/QD.png",
+        link: "https://quedb.vercel.app",
+        device: "monitor",
       },
     ],
   },
-  "write": {
+  write: {
     intro:
       "Tutorials and write-ups that make hard ideas easy to follow and easy to act on.",
     projects: [

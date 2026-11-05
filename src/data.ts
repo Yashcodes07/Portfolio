@@ -16,14 +16,14 @@ export const DOORS = [
 ];
 
 export const CHAPTERS = [
-  { year: "2026", when: "2026 — NOW", title: "AI engineer & student", org: "Independent · remote-first",
-    bullets: ["Building LLM-powered products and ML systems end to end, from first sketch to launch.", "Taking on freelance work in AI, web and technical writing."], c1: "229,65,45", c2: "63,124,224" },
-  { year: "2025", when: "2025", title: "LLM & AI engineering", org: "Projects & internships",
-    bullets: ["Shipped retrieval-augmented assistants and agent workflows with proper evaluation.", "Wrote up the lessons as technical articles."], c1: "124,92,214", c2: "229,65,45" },
-  { year: "2024", when: "2024", title: "ML engineering", org: "Coursework & projects",
-    bullets: ["Trained and deployed classical and deep-learning models on real datasets.", "Learned to treat data quality and evaluation as the real work."], c1: "63,124,224", c2: "124,92,214" },
-  { year: "2023", when: "2023", title: "Web development & UI/UX", org: "Design + code",
-    bullets: ["Designed interfaces in Figma and built them in React.", "Started writing documentation and tutorials for my own projects."], c1: "229,65,45", c2: "217,154,43" },
-  { year: "2022", when: "2022", title: "Where it started", org: "Computer science",
-    bullets: ["Began the degree: code in the classroom, design on the side.", "Found out I like building things people actually use."], c1: "217,154,43", c2: "178,142,132" },
+  { year: "2026", when: "2026 — NOW", title: "Seeking AI engineering opportunities", org: "Open to AI/ML internships & full-time roles",
+    bullets: ["Actively pursuing AI/ML engineering roles at high-growth startups where I can ship LLM and machine learning products.", "Also available for freelance engagements across AI, web development and technical writing."], c1: "108,192,112", c2: "63,124,224" },
+  { year: "2026", when: "2026 — INTERNSHIP", title: "AI/ML Intern at FlyRank", org: "FlyRank · Applied machine learning",
+    bullets: ["Developed end-to-end ML pipelines on a large-scale data warehouse, using DuckDB for analysis and feature engineering.", "Delivered a capstone model for content opportunity scoring, validated with a time-aware split and measurable lift over baseline."], c1: "229,65,45", c2: "63,124,224" },
+  { year: "2026", when: "2026 — PROJECTS", title: "Shipped production-grade projects", org: "AI, computer vision & web",
+    bullets: ["Engineered RepoSage, a retrieval-augmented agent for codebase Q&A, and QueDB, an AI-powered database engine.", "Built a computer vision helmet detection system and delivered client websites for live businesses."], c1: "217,154,43", c2: "229,65,45" },
+  { year: "2025", when: "2025", title: "Built a foundation in ML, DL & AI", org: "Machine learning · deep learning · LLMs",
+    bullets: ["Developed a strong grounding in machine learning, neural networks and modern generative AI.", "Applied the theory through hands-on models, experiments and early end-to-end projects."], c1: "124,92,214", c2: "229,65,45" },
+  { year: "2024", when: "2024", title: "Began B.Tech in AI & Machine Learning", org: "USAR, GGSIPU · Web development",
+    bullets: ["Started my undergraduate journey in Artificial Intelligence and Machine Learning at USAR, GGSIPU.", "Learned modern web development and began designing and building responsive websites."], c1: "63,124,224", c2: "217,154,43" },
 ];
