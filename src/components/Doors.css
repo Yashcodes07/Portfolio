@@ -25,7 +25,7 @@
   z-index: 1;
   display: flex;
   justify-content: center;
-  gap: clamp(24px, 5vw, 72px);
+  gap: clamp(36px, 5vw, 128px);
   perspective: 1400px;
 }
 
@@ -41,7 +41,7 @@
 
 .dx-stage {
   position: relative;
-  aspect-ratio: 210 / 400;
+  aspect-ratio: 210 / 470;
   width: 100%;
 }
 
@@ -149,22 +149,32 @@
   box-shadow: 0 0 0 2px #c59a45;
 }
 
-/* "Click to enter" pill */
+/* "Click to enter" tag: sits outside the swinging leaf so it stays flat and readable */
 .dx-enter {
   position: absolute;
-  right: 44%;
-  top: 65%;
-  padding: 5px 10px;
+  left: 50%;
+  bottom: -52px;
+  translate: -50% 6px;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
   border-radius: 999px;
-  font: 500 10px / 1 system-ui, sans-serif;
-  color: #ddd;
+  font: 600 12px / 1 system-ui, sans-serif;
+  letter-spacing: 0.02em;
+  color: #2a1f08;
   white-space: nowrap;
-  background: rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(6px);
+  background: linear-gradient(180deg, #f0d791, #c59a45);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
   opacity: 0;
-  transition: opacity 0.3s ease 0.2s;
+  pointer-events: none;
+  transition: opacity 0.3s ease 0.25s, translate 0.3s ease 0.25s;
 }
-.dx-door.is-open .dx-enter { opacity: 1; }
+.dx-enter i { font-style: normal; transition: transform 0.3s ease; }
+.dx-slot.is-active .dx-enter { opacity: 1; translate: -50% 0; }
+.dx-slot.is-active .dx-enter i { transform: translateX(3px); }
+.dx-slot.is-entering .dx-enter { opacity: 0; }
 
 /* ---------- Info beside the open door ---------- */
 .dx-info {
@@ -251,6 +261,7 @@
     transition: opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease;
   }
   .dx-slot.is-active .dx-info { max-height: 220px; margin-top: 18px; }
+  .dx-enter { bottom: 8%; font-size: 11px; padding: 8px 12px; }
   .dx-info li { font-size: 12px; }
   .dx-slot.is-entering { transform: scale(2.2); }
 }

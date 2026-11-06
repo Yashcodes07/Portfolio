@@ -117,11 +117,13 @@ export default function Doors({ onEnter }: Props) {
                     <span className="dx-room" />
                     <span className="dx-leaf">
                       <span className="dx-plate">{d.plate ?? d.title}</span>
-                      <span className="dx-enter">Click to enter</span>
                       <span className="dx-knob" />
                       <span className="dx-key" />
                     </span>
                   </button>
+                  <span className="dx-enter" aria-hidden="true">
+                    Click to enter <i>→</i>
+                  </span>
                 </div>
 
                 <div className="dx-info" aria-hidden={!isOpen}>

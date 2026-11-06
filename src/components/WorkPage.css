@@ -13,7 +13,7 @@
 }
 @keyframes wp-in { from { opacity: 0; } to { opacity: 1; } } /* opacity only, so fixed buttons stay fixed */
 
-.wp-shell { width: min(1100px, 100% - 48px); margin-inline: auto; }
+.wp-shell { width: min(1240px, 100% - 48px); margin-inline: auto; }
 
 /* ---------- header ---------- */
 .wp-hdr {
@@ -26,7 +26,7 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 .wp-nav {
-  width: min(1100px, 100% - 48px);
+  width: min(1240px, 100% - 48px);
   margin-inline: auto;
   height: 64px;
   display: flex;
@@ -74,12 +74,12 @@
   top: calc(92px + var(--i, 0) * 16px);
   z-index: var(--z, 1);
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
   align-items: center;
-  gap: clamp(20px, 4vw, 56px);
-  min-height: min(68vh, 560px);
-  margin-bottom: 14vh;
-  padding: clamp(24px, 4vw, 52px);
+  gap: clamp(20px, 3vw, 44px);
+  min-height: min(70vh, 580px);
+  margin-bottom: 10vh;
+  padding: clamp(22px, 3vw, 40px) clamp(22px, 3.4vw, 48px);
   border-radius: 28px;
   background: #1a1a1a;
   border: 1px solid rgba(255, 255, 255, 0.06);
@@ -120,16 +120,14 @@
 .wp-note::before { content: "• "; }
 
 /* ---------- device frames ---------- */
-.wp-card__vis { display: grid; place-items: center; min-width: 0; }
+.wp-card__vis { display: grid; place-items: center; min-width: 0; perspective: 1800px; }
 .wp-dev { position: relative; width: 100%; display: flex; flex-direction: column; align-items: center; }
 
 .wp-dev__screen {
   position: relative;
   width: 100%;
   overflow: hidden;
-  background: #0a0a0a;
-  border: 6px solid #2a2a2c;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  background: #050506;
 }
 .wp-dev__screen img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
 .wp-dev__ph {
@@ -144,20 +142,65 @@
   background: linear-gradient(135deg, #1f1f22, #121214);
 }
 
-.wp-dev--monitor .wp-dev__screen { aspect-ratio: 16 / 10; border-radius: 12px; }
-.wp-dev--monitor .wp-dev__stand {
-  width: 18%;
-  height: 54px;
-  margin-top: -2px;
-  background: linear-gradient(180deg, #8a8a8e, #4a4a4e);
-  clip-path: polygon(30% 0, 70% 0, 100% 100%, 0 100%);
+/* --- realistic monitor: thin black bezel, glass glare, silver neck and base --- */
+.wp-dev--monitor {
+  transform: rotateY(-7deg) rotateX(1.5deg);
+  transform-origin: 50% 60%;
 }
+.wp-dev--monitor .wp-dev__screen {
+  aspect-ratio: 16 / 10;
+  border: 10px solid #0b0b0c;
+  border-radius: 14px;
+  box-shadow:
+    0 0 0 2px #2c2c2f,
+    0 0 0 3px rgba(255, 255, 255, 0.06),
+    0 40px 70px rgba(0, 0, 0, 0.55);
+}
+.wp-dev--monitor .wp-dev__screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(115deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.04) 28%, transparent 42%);
+}
+.wp-dev--monitor .wp-dev__stand {
+  position: relative;
+  width: 100%;
+  height: clamp(54px, 6vw, 84px);
+  margin-top: -1px;
+}
+/* neck */
+.wp-dev--monitor .wp-dev__stand::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  translate: -50% 0;
+  width: 15%;
+  height: 100%;
+  background: linear-gradient(90deg, #6d6d71 0%, #d9d9dc 38%, #f1f1f3 52%, #9a9a9e 78%, #636367 100%);
+  clip-path: polygon(8% 0, 92% 0, 100% 100%, 0 100%);
+}
+/* base */
+.wp-dev--monitor .wp-dev__stand::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  translate: -50% 0;
+  width: 34%;
+  height: 12px;
+  border-radius: 6px / 50%;
+  background: linear-gradient(180deg, #f2f2f4, #b4b4b8 60%, #8a8a8e);
+  box-shadow: 0 16px 24px rgba(0, 0, 0, 0.55);
+}
+
 .wp-dev--phone .wp-dev__screen {
-  width: min(210px, 60%);
+  width: min(230px, 60%);
   aspect-ratio: 9 / 19;
+  border: 7px solid #1a1a1c;
   border-radius: 34px;
-  border-width: 7px;
-  border-color: #3a3a3d;
+  box-shadow: 0 0 0 2px #3a3a3d, 0 30px 60px rgba(0, 0, 0, 0.5);
 }
 
 /* ---------- closing section ---------- */
@@ -205,9 +248,11 @@
   .wp-card { grid-template-columns: 1fr; min-height: 0; top: calc(78px + var(--i, 0) * 12px); }
   .wp-card__vis { order: -1; }
   .wp-dev--phone .wp-dev__screen { width: min(170px, 55%); }
+  .wp-dev--monitor { transform: none; }
   .wp-cols { grid-template-columns: 1fr 1fr; }
 }
 @media (prefers-reduced-motion: reduce) {
   .wp { animation: none; }
   .wp-card { transform: none; }
+  .wp-dev--monitor { transform: none; }
 }
