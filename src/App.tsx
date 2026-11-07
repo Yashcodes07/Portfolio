@@ -84,7 +84,7 @@ export default function App() {
             <div className="ctas rv" style={{ ["--d" as string]: "500ms" }}>
               <a
                 className="btn btn--dark"
-                href="mailto:youremail@gmail.com?subject=Let's work together"
+                href="mailto:yashk40491@gmail.com?subject=Let's work together"
               >
                 Hire me <span className="btn__arr">→</span>
               </a>
@@ -106,7 +106,7 @@ export default function App() {
           <div className="ctas">
            <a
             className="btn btn--dark"
-            href="mailto:youremail@gmail.com?subject=Let's work together"
+            href="mailto:yashk40491@gmail.com?subject=Let's work together"
           >           
             Hire me <span className="btn__arr">→</span>
           </a>
