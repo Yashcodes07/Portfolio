@@ -1,9 +1,23 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
-export default function Cord({ onToggle }: { onToggle: () => void }) {
+const SHOW_DELAY = 1200; // ms after the hero is ready before the cord drops in
+
+export default function Cord({ onToggle, ready = true }: { onToggle: () => void; ready?: boolean }) {
   const cv = useRef<HTMLCanvasElement>(null);
   const toggle = useRef(onToggle);
   toggle.current = onToggle;
+  const [show, setShow] = useState(false);
+  const shown = useRef(false);
+  const kick = useRef<() => void>(() => {});
+
+  // drop the cord in a moment after the hero has loaded, then give it a little swing
+  useEffect(() => {
+    if (!ready) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const t1 = window.setTimeout(() => { shown.current = true; setShow(true); }, reduce ? 0 : SHOW_DELAY);
+    const t2 = window.setTimeout(() => kick.current(), reduce ? 0 : SHOW_DELAY + 650);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
+  }, [ready]);
 
   useEffect(() => {
     const c = cv.current!;
@@ -15,6 +29,7 @@ export default function Cord({ onToggle }: { onToggle: () => void }) {
     const ax = W - 40;
     const pts = Array.from({ length: N }, (_, i) => ({ x: ax, y: i * L, px: ax, py: i * L }));
     const restY = (N - 1) * L;
+    kick.current = () => { for (let i = 1; i < N; i++) pts[i].px += i * 0.25; };
     let drag = false, mx = 0, my = 0, maxPull = 0;
 
     const local = (e: PointerEvent) => {
@@ -22,11 +37,13 @@ export default function Cord({ onToggle }: { onToggle: () => void }) {
       mx = e.clientX - r.left; my = e.clientY - r.top;
     };
     const down = (e: PointerEvent) => {
+      if (!shown.current) return;
       local(e);
       const b = pts[N - 1];
       if (Math.hypot(mx - b.x, my - (b.y + 12)) < 34) { drag = true; maxPull = 0; document.body.style.cursor = "grabbing"; }
     };
     const move = (e: PointerEvent) => {
+      if (!shown.current) return;
       local(e);
       if (!drag) {
         const b = pts[N - 1];
@@ -95,5 +112,12 @@ export default function Cord({ onToggle }: { onToggle: () => void }) {
     };
   }, []);
 
-  return <canvas ref={cv} className="cord" style={{ width: 140, height: 420 }} aria-hidden="true" />;
+  return <canvas ref={cv} className="cord" style={{
+        width: 140,
+        height: 420,
+        right: "clamp(30px, 5vw, 90px)",
+        transform: show ? "translateY(0)" : "translateY(-105%)",
+        opacity: show ? 1 : 0,
+        transition: "transform 1.1s cubic-bezier(0.22, 1.1, 0.36, 1), opacity 0.4s ease",
+      }} aria-hidden="true" />;
 }

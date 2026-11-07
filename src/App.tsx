@@ -56,7 +56,7 @@ export default function App() {
   return (
     <>
       <Loader onDone={done} />
-      <Cord onToggle={toggleMode} />
+      <Cord onToggle={toggleMode} ready={ready} />
       <header className={`hdr rv ${stuck ? "stuck" : ""}`}>
         <div className="shell hdr__in">
           <nav className="nav">{NAV.map(([l, h]) => <a key={l} href={h}>{l}</a>)}</nav>
@@ -70,7 +70,7 @@ export default function App() {
           <div className="hero__wm" aria-hidden="true">YASH</div>
           <div className="hero__stage">
             <div className="fig" onClick={() => setCard(true)}>
-             <ColorReveal src="/yash.png" alt="Yash Kumar" />
+             <ColorReveal src="/y.png" alt="Yash Kumar" />
              <button className="fig__card" onClick={(e) => { e.stopPropagation(); setCard(true); }}>My ability card</button>
             </div>
           </div>
@@ -82,7 +82,12 @@ export default function App() {
             </h1>
             <div className="rv" style={{ ["--d" as string]: "300ms" }}><FlipRole running={ready} /></div>
             <div className="ctas rv" style={{ ["--d" as string]: "500ms" }}>
-              <a className="btn btn--dark" href="#contact">Hire me <span className="btn__arr">→</span></a>
+              <a
+                className="btn btn--dark"
+                href="mailto:youremail@gmail.com?subject=Let's work together"
+              >
+                Hire me <span className="btn__arr">→</span>
+              </a>
               <a className="btn" href="#work">See my work</a>
             </div>
           </div>
@@ -99,7 +104,12 @@ export default function App() {
           <h2 className="sf__h">Need something built?<br /><span>Let's make it happen.</span></h2>
           <p className="sf__p">AI products, web interfaces, ML systems or technical writing — tell me what you need and I'll reply within a day.</p>
           <div className="ctas">
-            <a className="btn btn--dark" href="mailto:hello@example.com">Hire me <span className="btn__arr">→</span></a>
+           <a
+            className="btn btn--dark"
+            href="mailto:youremail@gmail.com?subject=Let's work together"
+          >           
+            Hire me <span className="btn__arr">→</span>
+          </a>
             <a className="btn" href="#work">See my work</a>
           </div>
           <div className="sf__cols">
