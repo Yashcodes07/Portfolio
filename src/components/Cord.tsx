@@ -115,7 +115,7 @@ export default function Cord({ onToggle, ready = true }: { onToggle: () => void;
   return <canvas ref={cv} className="cord" style={{
         width: 140,
         height: 420,
-        right: "clamp(30px, 5vw, 90px)",
+        right: "clamp(70px, 9vw, 150px)",
         transform: show ? "translateY(0)" : "translateY(-105%)",
         opacity: show ? 1 : 0,
         transition: "transform 1.1s cubic-bezier(0.22, 1.1, 0.36, 1), opacity 0.4s ease",

@@ -50,6 +50,16 @@ export const WORK: Record<string, Category> = {
         link: "https://www.akashsan.in",
         device: "monitor",
       },
+      {
+        kicker: "WEBSITE BUILD · FREELANCE",
+        title: "Personal Portfolio",
+        subtitle: "Product designer portfolio",
+        description:
+          "A dark, type-led portfolio with a large display headline, a project list with hover previews and an about section.",
+        tags: ["Design&Build", "Responsive", "Freelance"],
+        shot: "/Work/Pf.png",
+        device: "monitor",
+      },
     ],
   },
   ml: {
