@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { DOORS } from "../data";
-import { WORK, type Project } from "./Work";
+import { WORK, type Project } from "../work";
 import "./WorkPage.css";
 
 type DoorLite = { id: string; title: string; blurb?: string };
@@ -8,20 +8,86 @@ type DoorLite = { id: string; title: string; blurb?: string };
 const STICKY_TOP = 92; // px below the top where cards stick
 const STEP = 16; // extra px each stacked card sits lower
 
+/** play only when the video is on screen AND not buried under the next stacked card */
+function syncVideo(v: HTMLVideoElement) {
+  const want = v.dataset.inview === "1" && v.dataset.covered !== "1";
+  v.muted = true; // required for autoplay in Safari/Chrome
+  if (want) v.play().catch((err) => console.info("[WorkPage] video play() blocked:", v.src, err));
+  else v.pause();
+}
+
 function Device({ p }: { p: Project }) {
   const kind = p.device ?? "monitor";
+  const vid = useRef<HTMLVideoElement>(null);
+  const [failed, setFailed] = useState(false);
+  const useVideo = !!p.video && !failed;
+
+  useEffect(() => {
+    const v = vid.current;
+    if (!v) return;
+    const io = new IntersectionObserver(
+      ([e]) => {
+        v.dataset.inview = e.isIntersecting ? "1" : "0";
+        syncVideo(v);
+      },
+      { threshold: 0.35 }
+    );
+    io.observe(v);
+    return () => io.disconnect();
+  }, [useVideo]);
+
+  const media = useVideo ? (
+    <video
+      ref={vid}
+      className="wp-dev__video"
+      src={p.video}
+      poster={p.shot}
+      muted
+      loop
+      playsInline
+      preload="metadata"
+      disablePictureInPicture
+      aria-label={`${p.title} screen recording`}
+      onCanPlay={(e) => syncVideo(e.currentTarget)}
+      onError={(e) => {
+        const v = e.currentTarget;
+        console.warn(
+          `[WorkPage] video could not load: ${p.video} (error code ${v.error?.code}). ` +
+            "Code 4 = file missing at that path or format not supported by this browser. " +
+            "Showing the image instead."
+        );
+        setFailed(true);
+      }}
+    />
+  ) : p.shot ? (
+    <img src={p.shot} alt={`${p.title} screenshot`} loading="lazy" />
+  ) : (
+    <div className="wp-dev__ph">
+      <span>{p.title}</span>
+    </div>
+  );
+
+  if (kind === "monitor") {
+    return (
+      <div className="wp-dev wp-dev--monitor">
+        <div className="wp-mon">
+          <div className="wp-mon__body">
+            <div className="wp-dev__screen">
+              {media}
+              <span className="wp-mon__glare" />
+            </div>
+          </div>
+          <div className="wp-mon__neck" />
+          <div className="wp-mon__base" />
+        </div>
+        <div className="wp-mon__shadow" />
+      </div>
+    );
+  }
+
   return (
     <div className={`wp-dev wp-dev--${kind}`}>
-      <div className="wp-dev__screen">
-        {p.shot ? (
-          <img src={p.shot} alt={`${p.title} screenshot`} loading="lazy" />
-        ) : (
-          <div className="wp-dev__ph">
-            <span>{p.title}</span>
-          </div>
-        )}
-      </div>
-      {kind === "monitor" && <div className="wp-dev__stand" />}
+      <div className="wp-dev__screen">{media}</div>
     </div>
   );
 }
@@ -78,6 +144,14 @@ export default function WorkPage({ id, onClose }: { id: string; onClose: () => v
           p = Math.min(1, Math.max(0, (t0 + h - nextTop) / Math.max(1, h - STEP)));
         }
         c.style.setProperty("--p", p.toFixed(3));
+        const v = c.querySelector<HTMLVideoElement>("video");
+        if (v) {
+          const covered = p > 0.85 ? "1" : "0";
+          if (v.dataset.covered !== covered) {
+            v.dataset.covered = covered;
+            syncVideo(v);
+          }
+        }
       });
       setShowTop(el.scrollTop > 400);
     };
